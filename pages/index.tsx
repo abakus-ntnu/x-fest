@@ -1,4 +1,4 @@
-import Test from "../components/Test.jsx";
+import Test from "../components/Test";
 import useSWR from "swr";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
