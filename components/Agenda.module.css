@@ -1,0 +1,16 @@
+/* 
+TODO:
+  -fix issue where the bottom of the page doesn't share the same background as the body 
+*/
+
+.custom {
+  width: 200px;
+}
+
+.verticalTimelineElementTitle {
+  color: #000;
+}
+
+.verticalTimelineElementDescription {
+  color: #000;
+}

@@ -1,19 +1,22 @@
-const express = require('express');
-const http = require('http');
-const bodyParser = require('body-parser');
-const cors = require('cors');
+const express = require("express");
+const http = require("http");
+const bodyParser = require("body-parser");
+
+const cors = require("cors");
 const app = express();
 const server = http.createServer(app);
-const io = require('socket.io')(server, {
+
+const io = require("socket.io")(server, {
   cors: {
-    origin: '*',
+    origin: "*",
   },
 });
-const RateLimit = require('express-rate-limit');
-const RedisStore = require('rate-limit-redis');
-const env = require('./env');
+const RateLimit = require("express-rate-limit");
+const RedisStore = require("rate-limit-redis");
+const env = require("./env");
 
-console.log('ENV', env.REDIS_URL);
+console.log("ENV", env.REDIS_URL);
+
 const apiLimiter = new RateLimit({
   store: new RedisStore({
     redisURL: env.REDIS_URL,
@@ -35,9 +38,9 @@ app.use(express.static(__dirname));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.post('/messages', async (req, res) => {
+app.post("/messages", async (req, res) => {
   try {
-    console.log(req);
+    //console.log(req);
     if (
       req.body.name &&
       req.body.text &&
@@ -45,42 +48,42 @@ app.post('/messages', async (req, res) => {
       req.body.text.length <= 55 &&
       req.body.name.length <= 20
     ) {
-      io.emit('message', req.body);
+      io.emit("message", req.body);
       return res.sendStatus(200);
     }
     return res.sendStatus(400);
   } catch (error) {
     res.sendStatus(500);
-    return console.log('error', error);
+    return console.log("error", error);
   } finally {
     //console.log('Message Posted');
   }
 });
 
-app.post('/hot', async (req, res) => {
+app.post("/hot", async (req, res) => {
   try {
-    io.emit('hot');
+    io.emit("hot");
     return res.sendStatus(200);
   } catch (error) {
     res.sendStatus(500);
-    return console.log('error', error);
+    return console.log("error", error);
   } finally {
     //console.log('Hot Posted');
   }
 });
 
-app.post('/not', async (req, res) => {
+app.post("/not", async (req, res) => {
   try {
-    io.emit('not');
+    io.emit("not");
     return res.sendStatus(200);
   } catch (error) {
     res.sendStatus(500);
-    return console.log('error', error);
+    return console.log("error", error);
   } finally {
     //console.log('Not Posted');
   }
 });
 
 server.listen(env.PORT, () => {
-  console.log('server is running on port', server.address().port);
+  console.log("server is running on port", server.address().port);
 });
