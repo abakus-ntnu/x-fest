@@ -21,8 +21,8 @@ export default async function handler(
 
   // Get all the state we need for the page
   const agenda = await Agenda.find({});
-  const info = await Info.find({});
-  const score = await Score.find({});
+  const info = await Info.findOne().sort({ date: -1 }).limit(1);
+  const score = await Score.findOne().sort({ date: -1 }).limit(1);
 
   res.statusCode = 200;
   res.setHeader("Content-Type", "application/json");
