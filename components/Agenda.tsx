@@ -9,6 +9,7 @@ type event = {
   title: string;
   time: string;
   description: string;
+  index: number;
 };
 
 type props = {
@@ -17,11 +18,15 @@ type props = {
 
 const Agenda = (props: props) => {
   const agenda = props.agenda;
+  agenda.sort((a, b) =>
+    a.index != undefined && a.index != undefined ? a.index - b.index : -10000
+  );
   return (
     <VerticalTimeline>
-      {agenda.map((event) => {
+      {agenda.map((event: event) => {
         return (
           <VerticalTimelineElement
+            key={event.index}
             className={styles.verticalTimelineElementWork}
             contentStyle={{
               background: "#ffffff",

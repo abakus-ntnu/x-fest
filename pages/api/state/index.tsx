@@ -1,10 +1,37 @@
-import type { NextApiRequest, NextApiResponse } from 'next'
+import type { NextApiRequest, NextApiResponse } from "next";
+import mongoose from "mongoose";
+import { Agenda, Info, Score } from "../../../models/schema.js";
 
-type Data = {
-  state: string
-}
+const username = process.env.DATABASE_USER;
+const password = process.env.DATABASE_PASSWORD;
+const dbname = "x-fest";
 
-const handler = (req: NextApiRequest, res: NextApiResponse) => {
-  res.status(200).json({ state: "State from API" });
+export const url = `mongodb+srv://${username}:${password}@cluster0.sdzbx.mongodb.net/${dbname}?retryWrites=true&w=majority`;
+
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
+  mongoose.connect(url, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+    useCreateIndex: true,
+  });
+
+  // Get all the state we need for the page
+  const agenda = await Agenda.find({});
+  const info = await Info.find({});
+  const score = await Score.find({});
+
+  res.statusCode = 200;
+  res.setHeader("Content-Type", "application/json");
+
+  res.end(
+    JSON.stringify({
+      agenda,
+      info,
+      score,
+    })
+  );
 }
-export default handler;

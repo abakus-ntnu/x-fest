@@ -6,7 +6,7 @@ import styles from "./MessageList.module.css";
 type message = {
   name: string;
   text: string;
-  avatar: string;
+  side: string;
 };
 
 const MessageList = ({ socket }: { socket: SocketIOClient.Socket }) => {
@@ -43,13 +43,12 @@ const MessageList = ({ socket }: { socket: SocketIOClient.Socket }) => {
   };
 
   useEffect(() => {
+    console.log(messages);
     socket.on("message", addMessage);
     return () => {
       socket.off("message", addMessage);
     };
   }, []);
-
-  focus();
 
   return (
     <div className={styles.container}>
