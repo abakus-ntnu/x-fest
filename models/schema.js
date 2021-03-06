@@ -2,12 +2,14 @@ import mongoose from "mongoose";
 
 delete mongoose.connection.models["Agenda"];
 delete mongoose.connection.models["Info"];
+delete mongoose.connection.models["Score"];
 
 const AgendaSchema = new mongoose.Schema(
   {
     title: { type: String },
     time: { type: String },
     description: { type: String },
+    index: { type: Number },
   },
   { autoCreate: true }
 );

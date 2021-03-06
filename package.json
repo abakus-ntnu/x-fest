@@ -10,6 +10,9 @@
   "dependencies": {
     "@types/react-vertical-timeline-component": "^3.0.0",
     "@types/socket.io-client": "^1.4.35",
+    "dompurify": "^2.2.6",
+    "marked": "^2.0.1",
+    "mongoose": "^5.11.18",
     "next": "10.0.7",
     "react": "17.0.1",
     "react-dom": "17.0.1",

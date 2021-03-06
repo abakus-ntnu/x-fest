@@ -43,10 +43,9 @@ app.post("/messages", async (req, res) => {
     //console.log(req);
     if (
       req.body.name &&
+      req.body.name.length <= 20 &&
       req.body.text &&
-      req.body.avatar &&
-      req.body.text.length <= 55 &&
-      req.body.name.length <= 20
+      req.body.text.length <= 55
     ) {
       io.emit("message", req.body);
       return res.sendStatus(200);
