@@ -13,7 +13,6 @@ const WelcomeForm = ({ setIsUserRegistered }: props) => {
 
   const handleUsernameChange = (event: ChangeEvent<HTMLInputElement>) => {
     setUsername(event.target.value);
-    event.target.checked = true;
   };
 
   const handleSideChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -32,8 +31,7 @@ const WelcomeForm = ({ setIsUserRegistered }: props) => {
     setIsUserRegistered(true);
   };
 
-  // TODO: Adding image radiobuttons: https://stackoverflow.com/questions/17541614/use-images-instead-of-radio-buttons/17541916
-
+  // Adding image radiobuttons: https://stackoverflow.com/questions/17541614/use-images-instead-of-radio-buttons/17541916
   return (
     <form onSubmit={handleUserSubmit} className={styles.container}>
       <div className={styles.inputText} style={{ gridArea: "side-text" }}>
@@ -67,7 +65,7 @@ const WelcomeForm = ({ setIsUserRegistered }: props) => {
         className={styles.inputText}
         style={{ color: "white", gridArea: "name-text" }}
       >
-        NAVN:{" "}
+        NAVN:
       </div>
       <label className={styles.nameInput} style={{ gridArea: "name-input" }}>
         <input
