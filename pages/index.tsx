@@ -24,6 +24,7 @@ const Index = () => {
   const { data, error } = useSWR("/api/state", fetcher);
   const [isUserRegistered, setIsUserRegistered] = useState(false);
 
+  console.log(data)
   useEffect(() => {
     const [name, side] = [
       sessionStorage.getItem("name"),

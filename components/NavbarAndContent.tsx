@@ -4,7 +4,7 @@ import Infobox from "./Infobox";
 import styles from "./NavbarAndContent.module.css";
 import Game from "./Game";
 type prop = {
-  data: { info: { text: string }; agenda: [] };
+  data: { info: { text: string }; agenda: []; gameScore: [] };
 };
 
 const NavBarAndContent = ({ data }: prop) => {
@@ -14,8 +14,6 @@ const NavBarAndContent = ({ data }: prop) => {
   const handleTabChange = (event: ChangeEvent<HTMLInputElement>) => {
     setCurrentTab(event.target.value);
   };
-
-  console.log(data.info.text);
   return (
     <div>
       <form
@@ -62,7 +60,7 @@ const NavBarAndContent = ({ data }: prop) => {
         </div>
       )}
       {currentTab === "gallery" && <div></div>}
-      {currentTab === "spill" && <Game/>}
+      {currentTab === "spill" && <Game gameScore={data.gameScore}/>}
 
     </div>
   );
