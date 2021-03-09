@@ -125,6 +125,7 @@
      const { width, height } = this.canvas;
  
      ctx.clearRect(0, 0, width, height);
+
      ctx.save();
  
      // 云
@@ -303,7 +304,7 @@
  
    render() {
      return (
-       <canvas id="canvas" ref={ref => this.canvas = ref} height={600} width={800} />
+       <canvas id="canvas" ref={ref => this.canvas = ref} height={"100%"} width={"100%"} />
      );
    }
  };
