@@ -2,10 +2,10 @@ import { ChangeEvent, SetStateAction, SyntheticEvent, useState } from "react";
 import styles from "./WelcomeForm.module.css";
 
 type props = {
-  setIsUserRegistered(value: SetStateAction<boolean>): void;
+  setBackgroundImage(value: SetStateAction<string>): void;
 };
 
-const WelcomeForm = ({ setIsUserRegistered }: props) => {
+const WelcomeForm = ({ setBackgroundImage }: props) => {
   const [username, setUsername] = useState("");
   const [side, setSide] = useState("");
 
@@ -28,7 +28,7 @@ const WelcomeForm = ({ setIsUserRegistered }: props) => {
     sessionStorage.setItem("name", username);
     sessionStorage.setItem("side", side);
 
-    setIsUserRegistered(true);
+    setBackgroundImage(side);
   };
 
   // Adding image radiobuttons: https://stackoverflow.com/questions/17541614/use-images-instead-of-radio-buttons/17541916

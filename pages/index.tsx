@@ -23,27 +23,36 @@ const fetcher = (url: string) => fetch(url).then((res) => res.json());
 const Index = () => {
   const { data, error } = useSWR("/api/state", fetcher);
   const [isUserRegistered, setIsUserRegistered] = useState(false);
+  const [backgroundImage, setBackgroundImage] = useState("");
 
   useEffect(() => {
     const [name, side] = [
       sessionStorage.getItem("name"),
       sessionStorage.getItem("side"),
     ];
-    if (name && side)
-      if (name.length <= 20 && ["abakus", "online"].includes(side))
-        setIsUserRegistered(true);
+    if (name && side) {
+      if (name.length <= 20 && ["abakus", "online"].includes(side)) {
+        setBackgroundImage(side);
+      }
+    }
   }, []);
 
   if (error) return <div>Failed to load</div>;
   if (!data) return <div>Loading...</div>;
 
   return (
-    <div>
-      {isUserRegistered ? (
-        // <Infobox md={"# Hello World \n [google](https://google.com)"}></Infobox>
+    <div
+      className={styles.container}
+      style={{
+        backgroundImage: backgroundImage
+          ? `linear-gradient(var(--${backgroundImage}), black)`
+          : "linear-gradient(48deg, var(--abakus) 70%, var(--online) 60%)",
+      }}
+    >
+      {backgroundImage ? (
         <ActualIndex data={data} socket={socket} />
       ) : (
-        <WelcomeForm setIsUserRegistered={setIsUserRegistered} />
+        <WelcomeForm setBackgroundImage={setBackgroundImage} />
       )}
     </div>
   );
