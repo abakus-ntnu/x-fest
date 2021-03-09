@@ -15,7 +15,9 @@ const Message = ({
     <div className={styles.message}>
       <div
         className={styles.profilepic}
-        style={{ backgroundColor: message.side == "abakus" ? "red" : "blue" }}
+        style={{
+          backgroundColor: `var(--${message.side})`,
+        }}
       >
         {message.name[0].toUpperCase()}
       </div>

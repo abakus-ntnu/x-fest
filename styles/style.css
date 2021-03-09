@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+.temp {
+  /* Could we need this? */
+  height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --abakus: #e21617;
+  --online: #0d5474;
+}
+
+body {
+  background: linear-gradient(var(--online), black);
+  font-family: "Roboto", sans-serif;
+  height: 300vh;
+  width: 100vw;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}

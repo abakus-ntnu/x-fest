@@ -32,39 +32,15 @@ const Index = () => {
   if (error) return <div>Failed to load</div>;
   if (!data) return <div>Loading...</div>;
 
-  // const ActualIndex = () => {
-  //   return (
-  //     <div className={styles.ActualIndex}>
-  //       <div style={{ gridArea: "title" }}>Hei</div>
-  //       <div style={{ gridArea: "stream", backgroundColor: "black" }}>Hei</div>
-  //       <div style={{ gridArea: "chat" }}>
-  //         <MessageList socket={socket} />
-  //         <MessageInput />
-  //       </div>
-  //       <div style={{ gridArea: "score" }}>
-  //         <Bar
-  //           pointsToAbakus={data.score[0].abakus}
-  //           pointsToOnline={data.score[0].abakus}
-  //         ></Bar>
-  //       </div>
-  //       <div style={{ gridArea: "navbar" }}></div>
-  //       <div style={{ gridArea: "navbar-content" }}>
-  //         <Infobox md={data.info[0].info} />
-  //         <Agenda agenda={data.agenda} />
-  //       </div>
-  //     </div>
-  //   );
-  // };
-
   return (
-    <>
+    <div>
       {isUserRegistered ? (
         // <Infobox md={"# Hello World \n [google](https://google.com)"}></Infobox>
         <ActualIndex data={data} socket={socket} />
       ) : (
         <WelcomeForm setIsUserRegistered={setIsUserRegistered} />
       )}
-    </>
+    </div>
   );
 };
 export default Index;
