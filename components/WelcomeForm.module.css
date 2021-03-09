@@ -103,6 +103,6 @@
     position: relative;
     top: 0;
     left: 0;
-    transform: translate(0%, -15%) scale(30%);
+    transform: translate(0%, -15%) scale(0.3333);
   }
 }
