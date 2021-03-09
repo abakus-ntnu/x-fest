@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 delete mongoose.connection.models["Agenda"];
 delete mongoose.connection.models["Info"];
 delete mongoose.connection.models["Score"];
+delete mongoose.connection.models["GaemScore"];
 
 const AgendaSchema = new mongoose.Schema(
   {
@@ -32,3 +33,14 @@ const ScoreSchema = new mongoose.Schema(
 );
 
 export const Score = mongoose.model("Score", ScoreSchema);
+
+const GameSchema = new mongoose.Schema(
+  {
+    name: {type: String},
+    union: {type: String},
+    highscore: {type: Number},
+  },
+  {autoCreate: true }
+);
+
+export const GameSchema = mongoose.model("GameScore", GameSchema);
