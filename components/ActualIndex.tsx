@@ -5,12 +5,14 @@ import MessageInput from "./MessageInput";
 import MessageList from "./MessageList";
 import styles from "./ActualIndex.module.css";
 import NavBarAndContent from "./NavbarAndContent";
+import Stream from "./Stream";
 
 type prop = {
   data: {
     score: { abakus: number; online: number };
     info: { text: string };
     agenda: [];
+    stream: { streamId: string };
   };
   socket: SocketIOClient.Socket;
 };
@@ -19,7 +21,9 @@ const ActualIndex = ({ data, socket }: prop) => {
   return (
     <div className={styles.ActualIndex}>
       <div style={{ gridArea: "title" }}>Hei</div>
-      <div style={{ gridArea: "stream", backgroundColor: "black" }}></div>
+      <div style={{ gridArea: "stream", backgroundColor: "black" }}>
+        <Stream streamId={data.stream.streamId}/>
+      </div>
       <div style={{ gridArea: "chat" }}>
         <MessageList socket={socket} />
         <MessageInput />
