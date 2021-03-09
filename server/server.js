@@ -45,7 +45,8 @@ app.post("/messages", async (req, res) => {
       req.body.name &&
       req.body.name.length <= 20 &&
       req.body.text &&
-      req.body.text.length <= 55
+      req.body.text.length <= 55 &&
+      ["abakus", "online"].includes(req.body.side)
     ) {
       io.emit("message", req.body);
       return res.sendStatus(200);
