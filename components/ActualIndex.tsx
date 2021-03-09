@@ -11,6 +11,7 @@ type prop = {
     score: { abakus: number; online: number };
     info: { text: string };
     agenda: [];
+    highscores: []
   };
   socket: SocketIOClient.Socket;
 };

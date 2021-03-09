@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 delete mongoose.connection.models["Agenda"];
 delete mongoose.connection.models["Info"];
 delete mongoose.connection.models["Score"];
-delete mongoose.connection.models["GaemScore"];
+delete mongoose.connection.models["GameScore"];
 
 const AgendaSchema = new mongoose.Schema(
   {
@@ -43,4 +43,4 @@ const GameSchema = new mongoose.Schema(
   {autoCreate: true }
 );
 
-export const GameSchema = mongoose.model("GameScore", GameSchema);
+export const GameScore = mongoose.model("GameScore", GameSchema);
