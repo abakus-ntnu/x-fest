@@ -2,7 +2,7 @@ import React, { ChangeEvent, useState } from "react";
 import Agenda from "./Agenda";
 import Infobox from "./Infobox";
 import styles from "./NavbarAndContent.module.css";
-
+import Game from "./Game";
 type prop = {
   data: { info: { text: string }; agenda: [] };
 };
@@ -62,7 +62,7 @@ const NavBarAndContent = ({ data }: prop) => {
         </div>
       )}
       {currentTab === "gallery" && <div></div>}
-      {currentTab === "spill" && <div></div>}
+      {currentTab === "spill" && <Game/>}
     </div>
   );
 };
