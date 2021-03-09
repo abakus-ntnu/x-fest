@@ -3,7 +3,7 @@ import Agenda from "./Agenda";
 import Infobox from "./Infobox";
 import styles from "./NavbarAndContent.module.css";
 import Game from "./Game";
-import TRexRunner from "./TRexRunner";
+
 type prop = {
   data: { info: { text: string }; agenda: []; gameScore: [] };
 };
@@ -61,11 +61,10 @@ const NavBarAndContent = ({ data }: prop) => {
         </div>
       )}
       {currentTab === "gallery" && <div></div>}
-      {currentTab === "spill" && <TRexRunner/>}
+      {currentTab === "spill" && <Game gameScore={data.gameScore}/>}
 
     </div>
   );
 };
 
-//{currentTab === "spill" && <Game gameScore={data.gameScore}/>}
 export default NavBarAndContent;
