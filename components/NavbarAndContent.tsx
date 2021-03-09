@@ -62,7 +62,9 @@ const NavBarAndContent = ({ data }: prop) => {
         </div>
       )}
       {currentTab === "gallery" && <div></div>}
-      {currentTab === "spill" && <div>{/* IFRAME OR GAME COMPONENT GOES HERE:) */}}</div>}
+      {currentTab === "spill" && (
+        <div>{/* IFRAME OR GAME COMPONENT GOES HERE:) */}</div>
+      )}
     </div>
   );
 };
