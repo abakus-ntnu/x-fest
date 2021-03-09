@@ -60,29 +60,13 @@ app.post("/messages", async (req, res) => {
   }
 });
 
-app.post("/hot", async (req, res) => {
-  try {
-    io.emit("hot");
-    return res.sendStatus(200);
-  } catch (error) {
-    res.sendStatus(500);
-    return console.log("error", error);
-  } finally {
-    //console.log('Hot Posted');
-  }
+
+
+
+app.post("/media", async (req, res) => {  
 });
 
-app.post("/not", async (req, res) => {
-  try {
-    io.emit("not");
-    return res.sendStatus(200);
-  } catch (error) {
-    res.sendStatus(500);
-    return console.log("error", error);
-  } finally {
-    //console.log('Not Posted');
-  }
-});
+
 
 server.listen(env.PORT, () => {
   console.log("server is running on port", server.address().port);
