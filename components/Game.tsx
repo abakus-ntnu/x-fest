@@ -6,7 +6,7 @@ type props = {
 }
 
 const Game = ({gameScore}: props) => {
-  
+
     const HighScoreComponent = Object.keys(gameScore).map((key: string) => (
         <h1 key={key}> Navn: {gameScore[Number(key)].name}</h1>
     ));
@@ -20,9 +20,7 @@ const Game = ({gameScore}: props) => {
     }
 
     return(
-    <div className={styles.gameContainer}> <GameComponent  options={config} highScoreCallback={ParentFunction}/></div>);
+    <div className={styles.gameContainer}> <GameComponent options={config} highScoreCallback={ParentFunction}/></div>);
 };
-
-
 
 export default Game;

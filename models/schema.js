@@ -37,7 +37,7 @@ export const Score = mongoose.model("Score", ScoreSchema);
 const GameSchema = new mongoose.Schema(
   {
     name: {type: String},
-    union: {type: String},
+    side: {type: String},
     highscore: {type: Number},
   },
   {autoCreate: true }
