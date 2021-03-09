@@ -1,12 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import mongoose from "mongoose";
-import {
-  Agenda,
-  Info,
-  Score,
-  GameScore,
-  Stream,
-} from "../../../models/schema.js";
+import { Agenda, Image, Info, Score, GameScore Stream } from "../../../models/schema.js";
 
 const username = process.env.DATABASE_USER;
 const password = process.env.DATABASE_PASSWORD;
@@ -31,6 +25,7 @@ export default async function handler(
   const score = await Score.findOne().sort({ date: -1 }).limit(1);
   const gameScore = await GameScore.find({}).sort({ highscore: -1 }).limit(10);
   const stream = await Stream.findOne().sort({ date: -1 }).limit(1);
+  const images = await Image.find({ approved: true });
 
   res.statusCode = 200;
   res.setHeader("Content-Type", "application/json");
@@ -42,6 +37,7 @@ export default async function handler(
       score,
       gameScore,
       stream,
+      images,
     })
   );
 }

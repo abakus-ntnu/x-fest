@@ -7,6 +7,11 @@ import styles from "./ActualIndex.module.css";
 import NavBarAndContent from "./NavbarAndContent";
 import Stream from "./Stream";
 
+type imageProps = {
+  url: string;
+  approved: boolean;
+};
+
 type prop = {
   data: {
     score: { abakus: number; online: number };
@@ -14,9 +19,11 @@ type prop = {
     agenda: [];
     gameScore: [];
     stream: { streamId: string };
+    images: [imageProps];
   };
   socket: SocketIOClient.Socket;
 };
+export type { prop };
 
 const ActualIndex = ({ data, socket }: prop) => {
   return (

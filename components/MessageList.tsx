@@ -1,4 +1,3 @@
-import { Socket } from "node:dgram";
 import React, { useEffect, useRef, useState } from "react";
 import Message from "./Message";
 import styles from "./MessageList.module.css";
@@ -43,7 +42,6 @@ const MessageList = ({ socket }: { socket: SocketIOClient.Socket }) => {
   };
 
   useEffect(() => {
-    //console.log(messages);
     socket.on("message", addMessage);
     return () => {
       socket.off("message", addMessage);
