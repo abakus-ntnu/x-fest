@@ -2,6 +2,8 @@
   flex: 1;
   background-color: white;
 
+  height: min-content;
+
   margin: 20px;
   margin-left: 0px;
   padding: 30px;

@@ -1,11 +1,9 @@
-/* HIDE RADIO */
 .container {
   /* display: flex;
   flex-direction: column;
   align-items: center; */
 
   margin: 0;
-  width: 100%;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -21,6 +19,7 @@
   justify-items: center;
 }
 
+/* HIDE RADIO */
 .radio {
   position: absolute;
   opacity: 0;
@@ -97,4 +96,13 @@
 .submitButton:active {
   box-shadow: none;
   transform: translateY(6px);
+}
+
+@media (max-width: 1100px) {
+  .container {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: translate(0%, -15%) scale(30%);
+  }
 }

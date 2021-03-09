@@ -3,7 +3,6 @@ import styles from "./MessageInput.module.css";
 
 const MessageInput = () => {
   const [inputText, setInputText] = useState("");
-  const [username, setUsername] = useState("");
 
   const maxTextLength = 55;
 
@@ -11,15 +10,21 @@ const MessageInput = () => {
     setInputText(event.target.value);
   };
 
-  useEffect(() => {
-    const name = sessionStorage.getItem("name");
-    if (name) {
-      setUsername(name);
-    }
-  }, []);
+  useEffect(() => {}, []);
 
   const handleMessageSubmit = (event: SyntheticEvent) => {
-    if (!inputText || inputText.length > maxTextLength) {
+    const name = sessionStorage.getItem("name");
+    const side = sessionStorage.getItem("side");
+    if (
+      !(
+        inputText &&
+        inputText.length <= maxTextLength &&
+        name &&
+        name.length <= 20 &&
+        side &&
+        ["abakus", "online"].includes(side)
+      )
+    ) {
       event.preventDefault();
       return;
     }
@@ -31,9 +36,9 @@ const MessageInput = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        name: username,
+        name: name,
         text: inputText,
-        side: sessionStorage.getItem("side"),
+        side: side,
       }),
     })
       .then()

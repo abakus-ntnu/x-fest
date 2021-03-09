@@ -19,7 +19,7 @@ type props = {
 const Agenda = (props: props) => {
   const agenda = props.agenda;
   agenda.sort((a, b) =>
-    a.index != undefined && a.index != undefined ? a.index - b.index : -10000
+    a.index != undefined && b.index != undefined ? a.index - b.index : -10000
   );
   return (
     <VerticalTimeline>

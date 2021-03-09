@@ -9,7 +9,7 @@ type prop = {
 
 const NavBarAndContent = ({ data }: prop) => {
   const [currentTab, setCurrentTab] = useState("info");
-  const tabs = ["info", "gallery"];
+  const tabs = ["info", "gallery", "spill"];
 
   const handleTabChange = (event: ChangeEvent<HTMLInputElement>) => {
     setCurrentTab(event.target.value);
@@ -43,6 +43,16 @@ const NavBarAndContent = ({ data }: prop) => {
           />
           <div>BILDER</div>
         </label>
+
+        <label className={styles.navbarButton}>
+          <input
+            type="radio"
+            name="tab"
+            value="spill"
+            onChange={handleTabChange}
+          />
+          <div>SPILL</div>
+        </label>
       </form>
 
       {currentTab === "info" && (
@@ -52,6 +62,9 @@ const NavBarAndContent = ({ data }: prop) => {
         </div>
       )}
       {currentTab === "gallery" && <div></div>}
+      {currentTab === "spill" && (
+        <div>{/* IFRAME OR GAME COMPONENT GOES HERE:) */}</div>
+      )}
     </div>
   );
 };
