@@ -25,8 +25,13 @@ const Index = () => {
   const [isUserRegistered, setIsUserRegistered] = useState(false);
 
   useEffect(() => {
-    if (sessionStorage.getItem("name") && sessionStorage.getItem("side"))
-      setIsUserRegistered(true);
+    const [name, side] = [
+      sessionStorage.getItem("name"),
+      sessionStorage.getItem("side"),
+    ];
+    if (name && side)
+      if (name.length <= 20 && ["abakus", "online"].includes(side))
+        setIsUserRegistered(true);
   }, []);
 
   if (error) return <div>Failed to load</div>;
