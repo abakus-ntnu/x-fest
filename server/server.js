@@ -60,13 +60,35 @@ app.post("/messages", async (req, res) => {
   }
 });
 
+const REGION = "eu-central-1";
 
+const aws = require("aws-sdk");
+const multer = require("multer");
+const multerS3 = require("multer-s3");
 
+const s3 = new aws.S3({ apiVersion: "2006-03-01" });
 
-app.post("/media", async (req, res) => {  
+// TODO: https://www.npmjs.com/package/multer-s3
+// Test: curl -i -X POST -H "Content-Type: multipart/form-data" -F "photos=@test.png;type=image/png;" http://localhost:5000/upload
+
+const upload = multer({
+  storage: multerS3({
+    s3: s3,
+    bucket: env.BUCKET_NAME,
+    acl: "public-read",
+    metadata: function (req, file, cb) {
+      cb(null, { fieldName: file.fieldname });
+    },
+    key: function (req, file, cb) {
+      cb(null, Date.now().toString());
+    },
+  }),
 });
 
-
+app.post("/upload", upload.array("photos"), function (req, res, next) {
+  console.log(req.files);
+  res.send("Successfully uploaded " + req.files.length + " files!");
+});
 
 server.listen(env.PORT, () => {
   console.log("server is running on port", server.address().port);
