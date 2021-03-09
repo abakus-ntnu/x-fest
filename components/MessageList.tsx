@@ -43,7 +43,7 @@ const MessageList = ({ socket }: { socket: SocketIOClient.Socket }) => {
   };
 
   useEffect(() => {
-    console.log(messages);
+    //console.log(messages);
     socket.on("message", addMessage);
     return () => {
       socket.off("message", addMessage);

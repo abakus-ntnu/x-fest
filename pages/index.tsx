@@ -16,7 +16,7 @@ const socket: SocketIOClient.Socket = socketIOClient(
   process.env.NEXT_PUBLIC_SOCKET_URL!
 );
 
-console.log(socket);
+//console.log(socket);
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
@@ -24,7 +24,6 @@ const Index = () => {
   const { data, error } = useSWR("/api/state", fetcher);
   const [isUserRegistered, setIsUserRegistered] = useState(false);
 
-  console.log(data)
   useEffect(() => {
     const [name, side] = [
       sessionStorage.getItem("name"),
