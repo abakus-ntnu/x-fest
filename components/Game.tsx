@@ -2,8 +2,14 @@ import GameComponent from "./DinoGame/Game";
 import styles from "./Game.module.css";
 import React, { useState } from "react";
 
+type gameScore = {
+  name: string,
+  union: string,
+  highscore: number
+}
+
 type props = {
-  gameScore: [];
+  gameScore: gameScore[];
 };
 
 const Game = ({ gameScore }: props) => {
@@ -11,7 +17,7 @@ const Game = ({ gameScore }: props) => {
 
   const HighScoreComponent = Object.keys(gameScore).map((key: string) => (
     <li key={key}>
-      {gameScore[Number(key)].name} {gameScore[Number(key)].highscore}
+      {gameScore[Number(key)].name} {gameScore[Number(key)].highscore} {gameScore[Number(key)].union}
     </li>
   ));
 
