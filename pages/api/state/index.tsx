@@ -1,6 +1,13 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import mongoose from "mongoose";
-import { Agenda, Image, Info, Score, GameScore Stream } from "../../../models/schema.js";
+import {
+  Agenda,
+  Image,
+  Info,
+  Score,
+  GameScore,
+  Stream,
+} from "../../../models/schema.js";
 
 const username = process.env.DATABASE_USER;
 const password = process.env.DATABASE_PASSWORD;
