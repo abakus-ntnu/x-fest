@@ -1,22 +1,29 @@
 .container {
-  /* display: flex;
-  flex-direction: column;
-  align-items: center; */
-
   margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-areas:
-    "side-text side-text"
-    "abakus online"
-    "name-text name-text"
-    "name-input name-input"
-    "submit submit";
-  justify-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.sideButtons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.sideButtons label {
+  transition: all 0.2s ease-in-out;
+}
+
+.sideButtons label:hover {
+  transition: all 0.2s ease-in-out;
+}
+
+.sideButtons label:hover div {
+  box-shadow: 0 13px 15px rgba(33, 33, 33, 0.7);
+  transition: all 0.2s ease-in-out;
 }
 
 /* HIDE RADIO */
@@ -30,72 +37,85 @@
 .radio + div {
   background-color: white;
   width: fit-content;
-
-  height: 100px;
-  width: 455px;
+  height: 80px;
+  width: 400px;
   padding: 20px;
-
   cursor: pointer;
   border-radius: 20px;
-
   box-shadow: 0 10px 11px rgba(33, 33, 33, 0.7);
+  transition: all 0.2s ease-in-out;
 }
 
 .radio:checked + div {
   box-shadow: none;
-  transform: translateY(6px);
+  transform: scale(1.1);
+  box-shadow: 0 13px 15px rgba(33, 33, 33, 0.7);
 }
 
 .radio + div img {
   display: block;
   margin: auto;
-
   max-height: 100%;
 }
 
 .abakusButton {
-  grid-area: "abakus";
-  justify-self: end;
   margin: 50px;
 }
 
 .onlineButton {
-  grid-area: "online";
-  justify-self: start;
   margin: 50px;
 }
 
-.inputText {
+.text {
   color: white;
-  font-size: 70px;
-  font-weight: 900;
-  margin: 50px;
-  margin-bottom: 0px;
-  text-shadow: 0px 0px 11px rgba(33, 33, 33, 0.7);
+  font-size: 60px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 100px;
+}
+
+.nameInput {
+  margin: 0 auto;
 }
 
 .nameInput input {
-  margin: 50px;
+  margin-top: 100px;
+  margin-bottom: 100px;
   font-size: 50px;
   padding: 30px;
   width: 470px;
   border-radius: 20px;
+  border: none;
+  outline: none;
 }
 
 .submitButton {
-  padding: 30px;
-  font-size: 70px;
-  font-weight: bolder;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  padding: 25px;
+  font-size: 60px;
+  font-weight: bold;
+  border: none;
   border-radius: 20px;
   color: black;
   background-color: white;
   cursor: pointer;
+  transition: all 0.2s ease-in-out;
   box-shadow: 0 10px 11px rgba(33, 33, 33, 0.7);
+}
+
+.submitButton:hover {
+  box-shadow: 0 13px 15px rgba(33, 33, 33, 0.7);
 }
 
 .submitButton:active {
   box-shadow: none;
   transform: translateY(6px);
+  transition: all 0.2s ease-in-out;
+}
+
+.submitButtonDiv {
+  margin: 0 auto;
 }
 
 @media (max-width: 1100px) {
