@@ -1,24 +1,18 @@
-.ActualIndex {
-  display: grid;
-  grid-template-columns: 1fr max-content;
-  grid-template-rows: min-content min-content min-content min-content;
-  grid-template-areas:
-    "title title"
-    "stream chat"
-    "score score"
-    "navbar-and-content navbar-and-content";
-  width: 90%;
+.actualIndex {
+  margin: 20px;
 }
 
-@media (max-width: 1100px) {
-  .ActualIndex {
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-areas:
-      "title"
-      "stream"
-      "chat"
-      "score"
-      "navbar-and-content";
-  }
+.title {
+  color: white;
+}
+
+.stream {
+  margin-right: 20px;
+}
+
+.streamAndChat {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }

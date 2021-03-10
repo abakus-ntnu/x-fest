@@ -62,7 +62,10 @@ const MessageInput = () => {
             maxLength={maxTextLength}
           />
         </label>
-        <input className={styles.submitInput} type="submit" value="Send" />
+        <button className={styles.submitInput} type="submit">
+          <img src="/send-button.png" height="25"/>
+        </button>
+        {/* <input className={styles.submitInput} type="image" name="submit" src="/send-button.png" border="0"/> */}
       </form>
     </div>
   );
