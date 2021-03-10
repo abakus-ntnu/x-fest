@@ -81,10 +81,6 @@ export default class GameComponent extends React.Component {
   }
 
   componentDidMount() {
-    if (window.innerWidth >= 680) {
-      this.canvas.width = 680;
-    }
-
     const onSpacePress = () => {
       switch (this.status) {
         case STATUS.STOP:
@@ -301,6 +297,7 @@ export default class GameComponent extends React.Component {
       return;
     }
     this.props.highScoreCallback(this.score);
+    if (this.score > this.highScore) this.sumbitHighscore(this.score);
     this.status = STATUS.OVER;
     this.playerStatus = 3;
     this.__clearTimer();
@@ -326,8 +323,8 @@ export default class GameComponent extends React.Component {
       <canvas
         id="canvas"
         ref={(ref) => (this.canvas = ref)}
-        height={"100%"}
-        width={"100%"}
+        height={"200"}
+        width={"1000"}
       />
     );
   }
