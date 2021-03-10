@@ -19,22 +19,24 @@ type prop = {
 
 const ActualIndex = ({ data, socket }: prop) => {
   return (
-    <div className={styles.ActualIndex}>
-      <div style={{ gridArea: "title" }}>Hei</div>
-      <div style={{ gridArea: "stream", backgroundColor: "black" }}>
-        <Stream streamId={data.stream.streamId}/>
+    <div className={styles.actualIndex}>
+      <div className={styles.title}>x-fest [trenger fin logo]</div>
+      <div className={styles.streamAndChat}>
+        <div className={styles.stream}>
+          <Stream streamId={data.stream.streamId}/>
+        </div>
+        <div className={styles.chat}>
+          <MessageList socket={socket} />
+          <MessageInput />
+        </div>
       </div>
-      <div style={{ gridArea: "chat" }}>
-        <MessageList socket={socket} />
-        <MessageInput />
-      </div>
-      <div style={{ gridArea: "score" }}>
+      <div className={styles.bar}>
         <Bar
           pointsToAbakus={data.score.abakus}
           pointsToOnline={data.score.online}
         ></Bar>
       </div>
-      <div style={{ gridArea: "navbar-and-content" }}>
+      <div className={styles.navBarAndContent}>
         <NavBarAndContent data={data}></NavBarAndContent>
       </div>
     </div>

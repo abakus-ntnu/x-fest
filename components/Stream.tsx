@@ -8,7 +8,7 @@ type prop = {
 const Stream = ( {streamId} : prop ) => {
   const videoOpts : YouTubeProps["opts"] = {
     playerVars: {
-      autoplay: 1,
+      autoplay: 0, // remember to change to 1
       playsinline: 1,
     },
   };
