@@ -23,7 +23,7 @@ const apiLimiter = new RateLimit({
     expiry: 1, // 2 seconds
   }),
   // windowMs: 1000, // 1 second (redis uses expiry, not windowMs, see https://github.com/wyattjoh/rate-limit-redis/issues/32 )
-  max: 2, // limit each IP to 3 requests per windowMs or expiry
+  max: 1, // limit each IP to 3 requests per windowMs or expiry
   statusCode: 429,
   // message: 'Rate limit exceeded. Please wait',
   // keyGenerator: (req) => {
@@ -33,6 +33,7 @@ const apiLimiter = new RateLimit({
 });
 
 app.use(cors());
+app.set("trust proxy", true);
 app.use(apiLimiter);
 app.use(express.static(__dirname));
 app.use(bodyParser.json());
