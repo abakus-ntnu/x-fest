@@ -10,9 +10,9 @@ const Game = ({ gameScore }: props) => {
   const [currentScore, setScore] = useState(0);
 
   const HighScoreComponent = Object.keys(gameScore).map((key: string) => (
-    <h1 key={key}>
+    <li key={key}>
       {gameScore[Number(key)].name} {gameScore[Number(key)].highscore}
-    </h1>
+    </li>
   ));
 
   const ParentFunction = (value: number) => {
@@ -52,8 +52,13 @@ const Game = ({ gameScore }: props) => {
 
   return (
     <div className={styles.gameContainer}>
-      <GameComponent options={config} highScoreCallback={ParentFunction} />
-      <div>{HighScoreComponent}</div>
+      <div>
+        <GameComponent options={config} highScoreCallback={ParentFunction} />
+      </div>
+
+      <div>
+        <ol>{HighScoreComponent}</ol>
+      </div>
     </div>
   );
 };

@@ -1,5 +1,7 @@
-
 .gameContainer {
-    width: 600px;
-    height: 400px;
+  width: 600px;
+  height: 400px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }

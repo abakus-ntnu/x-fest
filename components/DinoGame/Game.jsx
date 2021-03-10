@@ -324,7 +324,7 @@ export default class GameComponent extends React.Component {
         id="canvas"
         ref={(ref) => (this.canvas = ref)}
         height={"200"}
-        width={"1000"}
+        width={"800"}
       />
     );
   }
