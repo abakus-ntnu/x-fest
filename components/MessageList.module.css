@@ -19,7 +19,7 @@
 
 .frame {
   position: relative;
-  height: 650px;
+  height: 600px;
   width: inherit;
   min-width: inherit;
   max-width: inherit;
@@ -41,13 +41,13 @@
   position: absolute;
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1300px) {
   .container {
     margin: 0 auto;
   }
 
   .messageListHeader {
-    height: 55px;
+    height: 50px;
     width: 240px;
   }
 
@@ -62,6 +62,6 @@
   }
 
   .frame {
-    height: 400px;
+    height: 340px;
   }
 }

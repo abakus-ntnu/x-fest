@@ -1,5 +1,5 @@
 .actualIndex {
-  margin: 20px;
+  margin: 40px;
 }
 
 .title {
@@ -8,11 +8,16 @@
 
 .stream {
   margin-right: 20px;
+  margin-top: 30px;
+}
+
+.chat {
+  margin-top: 30px;
 }
 
 .streamAndChat {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
 }

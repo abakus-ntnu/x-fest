@@ -32,7 +32,10 @@ const NavBarAndContent = ({ data }: prop) => {
             onChange={handleTabChange}
             defaultChecked
           />
-          <div>INFO</div>
+          <div className={styles.buttonContent}>
+            <img className={styles.icon} src="/info.png" height={30}/>
+            INFO
+          </div>
         </label>
         <label className={styles.navbarButton}>
           <input
@@ -41,7 +44,10 @@ const NavBarAndContent = ({ data }: prop) => {
             value="gallery"
             onChange={handleTabChange}
           />
-          <div>BILDER</div>
+          <div className={styles.buttonContent}>
+            <img className={styles.icon} src="/images.png" height={30}/>
+            BILDER
+          </div>
         </label>
 
         <label className={styles.navbarButton}>
@@ -51,7 +57,10 @@ const NavBarAndContent = ({ data }: prop) => {
             value="spill"
             onChange={handleTabChange}
           />
-          <div>SPILL</div>
+          <div className={styles.buttonContent}>
+            <img className={styles.icon} src="/game.png" height={30}/>
+            SPILL
+          </div>
         </label>
       </form>
 
