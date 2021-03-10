@@ -61,8 +61,7 @@ const NavBarAndContent = ({ data }: prop) => {
         </div>
       )}
       {currentTab === "gallery" && <div></div>}
-      {currentTab === "spill" && <Game gameScore={data.gameScore}/>}
-
+      {currentTab === "spill" && <Game gameScore={data.gameScore} />}
     </div>
   );
 };
