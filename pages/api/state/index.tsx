@@ -23,9 +23,8 @@ export default async function handler(
   const agenda = await Agenda.find({});
   const info = await Info.findOne().sort({ date: -1 }).limit(1);
   const score = await Score.findOne().sort({ date: -1 }).limit(1);
-  const gameScore = await GameScore.find({}).sort({highscore: -1}).limit(10);
-  //const gameScore = await GameScore.find({}).sort((a,b) => a.highscore - b.highscore);
-  console.log(gameScore)
+  const gameScore = await GameScore.find({}).sort({ highscore: -1 }).limit(10);
+
   res.statusCode = 200;
   res.setHeader("Content-Type", "application/json");
 

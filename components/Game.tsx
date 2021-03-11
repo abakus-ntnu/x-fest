@@ -1,12 +1,13 @@
 import GameComponent from "./DinoGame/Game";
 import styles from "./Game.module.css";
 import React, { useState } from "react";
+import HighscoreComponent from "./HighscoreComponent";
 
 type gameScore = {
-  name: string,
-  union: string,
-  highscore: number
-}
+  name: string;
+  union: string;
+  highscore: number;
+};
 
 type props = {
   gameScore: gameScore[];
@@ -15,10 +16,13 @@ type props = {
 const Game = ({ gameScore }: props) => {
   const [currentScore, setScore] = useState(0);
 
-  const HighScoreComponent = Object.keys(gameScore).map((key: string) => (
-    <li key={key}>
-      {gameScore[Number(key)].name} {gameScore[Number(key)].highscore} {gameScore[Number(key)].union}
-    </li>
+  const HighScoreList = Object.keys(gameScore).map((key: string) => (
+    <HighscoreComponent
+      key={key}
+      name={gameScore[Number(key)].name}
+      highscore={gameScore[Number(key)].highscore}
+      side={gameScore[Number(key)].union}
+    />
   ));
 
   const ParentFunction = (value: number) => {
@@ -63,7 +67,7 @@ const Game = ({ gameScore }: props) => {
       </div>
 
       <div>
-        <ol>{HighScoreComponent}</ol>
+        <ol>{HighScoreList}</ol>
       </div>
     </div>
   );
