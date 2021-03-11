@@ -62,11 +62,15 @@ const Game = ({ gameScore }: props) => {
 
   return (
     <div className={styles.gameContainer}>
-      <div>
-        <GameComponent options={config} highScoreCallback={ParentFunction} />
+      <div className={styles.canvasContainer}>
+        <GameComponent
+          className={styles.canvas}
+          options={config}
+          highScoreCallback={ParentFunction}
+        />
       </div>
 
-      <div>
+      <div className={styles.highScoreContainer}>
         <ol>{HighScoreList}</ol>
       </div>
     </div>
