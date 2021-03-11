@@ -28,11 +28,13 @@ const Game = ({ gameScore }: props) => {
   const ParentFunction = (value: number) => {
     if (value > currentScore) {
       setScore(value);
-      sumbitHighscore();
+    }
+    if (value > gameScore[9].highscore) {
+      sumbitHighscore(value);
     }
   };
 
-  const sumbitHighscore = () => {
+  const sumbitHighscore = (newScore: number) => {
     const name = sessionStorage.getItem("name");
     const side = sessionStorage.getItem("side");
 
@@ -45,7 +47,7 @@ const Game = ({ gameScore }: props) => {
       body: JSON.stringify({
         name: name,
         side: side,
-        score: currentScore,
+        score: newScore,
       }),
     })
       .then((res) => console.log(res))
