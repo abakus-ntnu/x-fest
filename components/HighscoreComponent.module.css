@@ -4,5 +4,7 @@
 }
 
 .elementStyle {
-  color: white;
+  color: black;
+  text-align: center;
+  list-style-position: inside;
 }

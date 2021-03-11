@@ -14,7 +14,7 @@ const HighscoreComponent = ({ name, side, highscore }: HighscoreProps) => {
         src={"/Ikoner/" + side + ".png"}
         alt="linjeforeningsikon"
       />{" "}
-      <div>{name}</div>
+      <b>{name}</b>
       <div>Highscore: {highscore}</div>
     </li>
   );
