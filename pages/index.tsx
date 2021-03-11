@@ -46,7 +46,7 @@ const Index = () => {
       style={{
         backgroundImage: backgroundImage
           ? `linear-gradient(var(--${backgroundImage}), black)`
-          : "linear-gradient(48deg, var(--abakus) 70%, var(--online) 60%)",
+          : "linear-gradient(48deg, var(--abakus) 50%, var(--online) 50%)",
       }}
     >
       {backgroundImage ? (

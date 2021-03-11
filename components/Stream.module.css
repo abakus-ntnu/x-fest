@@ -1,0 +1,34 @@
+.youtube {
+  height: 100%;
+  width: 100%;
+}
+
+.youtubeActual {
+  border-radius: 10px;
+  box-shadow: 2px 2px 18px rgba(33, 33, 33, 0.2);
+  width: 1300px;
+  height: 730px;
+}
+
+@media only screen and (max-width: 1300px) {
+  .youtubeActual {
+    width: 780px;
+    height: 440px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .youtubeActual {
+    border-radius: 7px;
+    width: 500px;
+    height: 280px;
+  }
+}
+
+@media only screen and (max-width: 470px) {
+  .youtubeActual {
+    border-radius: 5px;
+    width: 320px;
+    height: 180px;
+  }
+}

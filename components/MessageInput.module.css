@@ -1,7 +1,7 @@
 .container {
   height: 65px;
   width: 400px;
-  border-radius: 0px 0px 30px 30px;
+  border-radius: 0px 0px 10px 10px;
   background-color: white;
   box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
 }
@@ -9,9 +9,6 @@
 .form {
   position: relative;
   top: 20%;
-  background-color: #efefef;
-  border: 1px solid #dfdfdf;
-  border-radius: 30px;
   padding-left: 5px;
   padding-right: 5px;
   margin: 0 auto;
@@ -24,9 +21,9 @@
 .messageInput {
   border: none;
   outline: none;
-  color: #555555;
+  color: #333;
   font-size: 16px;
-  padding: 10px;
+  padding: 15px;
   width: 80%;
   background-color: transparent;
 }
@@ -35,43 +32,31 @@
   color: #999999;
 }
 
-.usernameInput {
-  border: none;
-  outline: none;
-  color: #555555;
-  font-size: 16px;
-  padding: 10px;
-  width: 60%;
-  background-color: transparent;
-}
-
-.usernameInput::placeholder {
-  color: #999999;
-}
-
 .submitInput {
+  display: flex;
   border: none;
+  padding: 10px;
   outline: none;
-  color: #999999;
-  font-size: 16px;
   background-color: transparent;
-  transform: all 0.4s ease-in-out;
+  transform: all 1s ease-in-out;
 }
 
 .submitInput:hover {
   transform: all 2s ease-in-out;
+  opacity: 0.8;
   color: #555555;
   cursor: pointer;
 }
 
 .submitInput:active {
-  transform: all 0.4s ease-in-out;
+  transform: all 2s linear;
+  transform: scale(0.8);
   color: #222222;
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1300px) {
   .container {
-    height: 55px;
+    height: 50px;
     width: 240px;
     margin: 0 auto;
   }
