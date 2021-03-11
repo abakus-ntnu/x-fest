@@ -45,7 +45,7 @@ export default async function handler(
       score,
       gameScore,
       stream,
-      images,
+      images: images.slice(images.length - 30, images.length),
     })
   );
 }
