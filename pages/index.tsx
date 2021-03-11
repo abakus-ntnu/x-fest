@@ -16,7 +16,7 @@ const socket: SocketIOClient.Socket = socketIOClient(
   process.env.NEXT_PUBLIC_SOCKET_URL!
 );
 
-console.log(socket);
+//console.log(socket);
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
@@ -30,6 +30,7 @@ const Index = () => {
       sessionStorage.getItem("name"),
       sessionStorage.getItem("side"),
     ];
+
     if (name && side) {
       if (name.length <= 20 && ["abakus", "online"].includes(side)) {
         setBackgroundImage(side);

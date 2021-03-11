@@ -16,6 +16,7 @@
     "mongoose": "^5.11.18",
     "next": "10.0.7",
     "react": "17.0.1",
+    "react-dinosaur-game": "^1.0.0",
     "react-dom": "17.0.1",
     "react-vertical-timeline-component": "^3.3.3",
     "react-youtube": "^7.13.1",

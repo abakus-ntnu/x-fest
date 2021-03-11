@@ -1,0 +1,28 @@
+.gameContainer {
+  width: 100%;
+  height: 400px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 5%;
+}
+
+.highScoreContainer {
+  border: 2px solid white;
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 30px;
+  background-color: white;
+  width: 30%;
+  font-size: 1.5vw;
+}
+
+.canvasContainer {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.canvas {
+  border: 1px solid black;
+}

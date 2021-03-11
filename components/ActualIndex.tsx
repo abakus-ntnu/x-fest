@@ -12,6 +12,7 @@ type prop = {
     score: { abakus: number; online: number };
     info: { text: string };
     agenda: [];
+    gameScore: [];
     stream: { streamId: string };
   };
   socket: SocketIOClient.Socket;
@@ -23,7 +24,7 @@ const ActualIndex = ({ data, socket }: prop) => {
       <div className={styles.title}>x-fest [trenger fin logo]</div>
       <div className={styles.streamAndChat}>
         <div className={styles.stream}>
-          <Stream streamId={data.stream.streamId}/>
+          <Stream streamId={data.stream.streamId} />
         </div>
         <div className={styles.chat}>
           <MessageList socket={socket} />
