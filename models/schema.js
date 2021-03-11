@@ -5,6 +5,7 @@ delete mongoose.connection.models["Info"];
 delete mongoose.connection.models["Score"];
 delete mongoose.connection.models["GameScore"];
 delete mongoose.connection.models["Stream"];
+delete mongoose.connection.models["Image"];
 
 const AgendaSchema = new mongoose.Schema(
   {
@@ -51,3 +52,12 @@ const StreamSchema = new mongoose.Schema(
   { autoCreate: true }
 );
 export const Stream = mongoose.model("Stream", StreamSchema);
+
+const ImageSchema = new mongoose.Schema(
+  {
+    url: { type: String },
+    approved: { type: Boolean },
+  },
+  { autoCreate: true }
+);
+export const Image = mongoose.model("Image", ImageSchema);

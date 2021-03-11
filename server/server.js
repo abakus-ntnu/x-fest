@@ -1,3 +1,27 @@
+const env = require("./env");
+// mongodb setup
+
+const mongoose = require("mongoose");
+
+const dbname = "x-fest";
+
+mongoose.connect(
+  `mongodb+srv://${env.DATABASE_USER}:${env.DATABASE_PASSWORD}@cluster0.sdzbx.mongodb.net/${dbname}?retryWrites=true&w=majority`,
+  { useNewUrlParser: true }
+);
+
+const Image = mongoose.model(
+  "Image",
+  new mongoose.Schema(
+    {
+      url: { type: String },
+      approved: { type: Boolean },
+    },
+    { autoCreate: true }
+  )
+);
+
+// Express setup
 const express = require("express");
 const http = require("http");
 const bodyParser = require("body-parser");
@@ -13,7 +37,6 @@ const io = require("socket.io")(server, {
 });
 const RateLimit = require("express-rate-limit");
 const RedisStore = require("rate-limit-redis");
-const env = require("./env");
 
 console.log("ENV", env.REDIS_URL);
 
@@ -38,6 +61,8 @@ app.use(express.static(__dirname));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+// API
+
 app.post("/messages", async (req, res) => {
   try {
     //console.log(req);
@@ -60,28 +85,44 @@ app.post("/messages", async (req, res) => {
   }
 });
 
-app.post("/hot", async (req, res) => {
-  try {
-    io.emit("hot");
-    return res.sendStatus(200);
-  } catch (error) {
-    res.sendStatus(500);
-    return console.log("error", error);
-  } finally {
-    //console.log('Hot Posted');
-  }
+const REGION = "eu-central-1";
+
+const aws = require("aws-sdk");
+const multer = require("multer");
+const multerS3 = require("multer-s3");
+
+const s3 = new aws.S3({ apiVersion: "2006-03-01" });
+
+// TODO: https://www.npmjs.com/package/multer-s3
+// Test: curl -i -X POST -H "Content-Type: multipart/form-data" -F "photos=@test.png;type=image/png;" http://localhost:5000/upload
+
+const upload = multer({
+  limits: {
+    files: 1,
+    fileSize: 1024 * 1024 * 2, // 2 MB
+  },
+  storage: multerS3({
+    s3: s3,
+    bucket: env.BUCKET_NAME,
+    acl: "public-read",
+    metadata: function (req, file, cb) {
+      cb(null, { fieldName: file.fieldname });
+    },
+    key: function (req, file, cb) {
+      cb(null, Date.now().toString() + file.originalname);
+    },
+  }),
 });
 
-app.post("/not", async (req, res) => {
-  try {
-    io.emit("not");
-    return res.sendStatus(200);
-  } catch (error) {
-    res.sendStatus(500);
-    return console.log("error", error);
-  } finally {
-    //console.log('Not Posted');
+app.post("/upload", upload.single("photos"), function (req, res, next) {
+  const url = req.file.location;
+  if (url) {
+    Image.create({ url, approved: false }, function (err, small) {
+      if (err) return handleError(err);
+      // saved!
+    });
   }
+  res.send("Successfully uploaded " + req.file.length + " files!");
 });
 
 server.listen(env.PORT, () => {

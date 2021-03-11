@@ -16,8 +16,6 @@ const socket: SocketIOClient.Socket = socketIOClient(
   process.env.NEXT_PUBLIC_SOCKET_URL!
 );
 
-//console.log(socket);
-
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 const Index = () => {

@@ -10,6 +10,7 @@ type event = {
   time: string;
   description: string;
   index: number;
+  _id: string;
 };
 
 type props = {
@@ -26,7 +27,7 @@ const Agenda = (props: props) => {
       {agenda.map((event: event) => {
         return (
           <VerticalTimelineElement
-            key={event.index}
+            key={event._id}
             className={styles.verticalTimelineElementWork}
             contentStyle={{
               background: "#ffffff",

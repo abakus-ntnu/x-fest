@@ -13,7 +13,7 @@
     "@types/socket.io-client": "^1.4.35",
     "dompurify": "^2.2.6",
     "marked": "^2.0.1",
-    "mongoose": "^5.11.18",
+    "mongoose": "^5.11.19",
     "next": "10.0.7",
     "react": "17.0.1",
     "react-dinosaur-game": "^1.0.0",
