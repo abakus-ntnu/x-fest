@@ -206,7 +206,7 @@ export default class GameComponent extends React.Component {
           width -
           (this.currentDistance - this.obstacles[i].distance + groundSpeed);
         if (offset > 0) {
-          ctx.drawImage(options.obstacleImage, offset, 84);
+          ctx.drawImage(options.obstacleImage, offset, 70);
         } else {
           ++pop;
         }
