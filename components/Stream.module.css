@@ -28,7 +28,6 @@
 @media only screen and (max-width: 470px) {
   .youtubeActual {
     border-radius: 5px;
-    width: 320px;
-    height: 180px;
+    max-width: 100%;
   }
 }

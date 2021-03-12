@@ -28,6 +28,7 @@
 }
 
 .list {
+  width: 100%;
   display: block;
   flex-direction: column;
   justify-content: flex-end;
@@ -48,7 +49,7 @@
 
   .messageListHeader {
     height: 50px;
-    width: 240px;
+    max-width: 100%;
   }
 
   .chatH2 {
@@ -58,7 +59,8 @@
 
   .container {
     min-width: 240px;
-    max-width: 240px;
+    max-width: 100%;
+    margin: 0 5px;
   }
 
   .frame {
