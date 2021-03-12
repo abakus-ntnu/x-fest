@@ -45,7 +45,7 @@ const WelcomeForm = ({ setBackgroundImage }: props) => {
             className={styles.radio}
           />
           <div>
-            <img src="/abakus_logo_black.png" height={80} />
+            <img src="/abakus_logo_black.png" />
           </div>
         </label>
         <label className={styles.onlineButton}>
@@ -57,7 +57,7 @@ const WelcomeForm = ({ setBackgroundImage }: props) => {
             className={styles.radio}
           />
           <div>
-            <img src="/Online_bla.svg" height={80} />
+            <img src="/Online_bla.svg" />
           </div>
         </label>
       </div>
