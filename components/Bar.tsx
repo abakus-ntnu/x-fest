@@ -8,8 +8,8 @@ type props = {
 const Bar = ({ pointsToAbakus, pointsToOnline }: props) => {
   return (
     <div className={styles.container} style={{ display: "flex" }}>
-      <div className={styles.leftText}>{pointsToAbakus} p</div>
-      <div className={styles.rightText}>{pointsToOnline} p</div>
+      <div className={styles.leftText}>{pointsToAbakus} x</div>
+      <div className={styles.rightText}>{pointsToOnline} x</div>
       <div
         style={{ flex: pointsToAbakus, backgroundColor: "var(--abakus)" }}
       ></div>

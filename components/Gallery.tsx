@@ -17,9 +17,7 @@ const Gallery = ({ images }: ImageProps) => {
     if (currentPhotosInput?.files?.length) {
       const formData = new FormData();
       formData.append("photos", currentPhotosInput.files[0]);
-      setPhotoName(
-        "Ferdig! Bildet vises når det blir godkjent:). Trykk for å laste opp flere bilder."
-      );
+      setPhotoName("Bildet vises når det blir godkjent:)");
       fetch(`${process.env.NEXT_PUBLIC_API_URL}/upload`, {
         method: "POST",
         headers: {
@@ -29,20 +27,26 @@ const Gallery = ({ images }: ImageProps) => {
       })
         .then()
         .catch((error) => {
-          setPhotoName("Opplastning feilet. Prøv en annen fil.");
+          setPhotoName("");
           console.error(error);
         });
       currentPhotosInput.value = "";
     } else {
-      setPhotoName("Trykk her for å velge fil først.");
+      setPhotoName("");
     }
   };
   return (
-    <div className={styles.container}>
+    <div>
       <form onSubmit={submitImage} className={styles.imageForm}>
-        <label>
-          {photoName ? photoName : "Slipp et bilde her eller trykk på meg!"}
+        <label htmlFor="photos">
+          {photoName ? (
+            <div>{photoName}</div>
+          ) : (
+            <img src="upload_file.svg" alt="" />
+          )}
         </label>
+
+        <input type="submit" value="LAST OPP BILDE" />
         <input
           type="file"
           name="photos"
@@ -52,11 +56,13 @@ const Gallery = ({ images }: ImageProps) => {
             setPhotoName(e.target.value);
           }}
         />
-        <input type="submit" value="Last opp bilde" />
       </form>
-      {images.reverse().map((image) => {
-        return <img src={image.url} key={image.url} />;
-      })}
+      <div className={styles.container}>
+        {images.map((image) => {
+          images;
+          return <img src={image.url} key={image.url} />;
+        })}
+      </div>
     </div>
   );
 };
