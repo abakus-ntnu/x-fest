@@ -1,6 +1,6 @@
 import GameComponent from "./DinoGame/Game";
 import styles from "./Game.module.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import HighscoreComponent from "./HighscoreComponent";
 
 type gameScore = {
@@ -64,14 +64,22 @@ const Game = ({ gameScore }: props) => {
     groundSpeed: 200,
   };
 
+  const handleKeyDown = (e) => {
+    e = e || window.event;
+    const charCode = e.keyCode || e.which;
+    if (charCode === 32) {
+      e.preventDefault();
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("keypress", handleKeyDown);
+  }, []);
+
   return (
     <div className={styles.gameContainer}>
       <div className={styles.canvasContainer}>
-        <GameComponent
-          className={styles.canvas}
-          options={config}
-          highScoreCallback={ParentFunction}
-        />
+        <GameComponent options={config} highScoreCallback={ParentFunction} />
       </div>
 
       <div className={styles.highScoreContainer}>
