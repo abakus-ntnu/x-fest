@@ -16,7 +16,7 @@ const HighscoreComponent = ({ name, side, highscore }: HighscoreProps) => {
         alt="linjeforeningsikon"
       />{" "}
       <b>{name}</b>
-      <div>Highscore: {highscore}</div>
+      <div className={Styles.highscore}>Highscore: {highscore}</div>
     </li>
   );
 };

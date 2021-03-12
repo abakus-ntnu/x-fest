@@ -28,7 +28,9 @@ export type { prop };
 const ActualIndex = ({ data, socket }: prop) => {
   return (
     <div className={styles.actualIndex}>
-      <div className={styles.title}>x-fest [trenger fin logo]</div>
+      <div>
+        <img className={styles.title} src="/x-fest_logo.png" alt="X-fest" height={110} />
+      </div>
       <div className={styles.streamAndChat}>
         <div className={styles.stream}>
           <Stream streamId={data.stream.streamId} />
