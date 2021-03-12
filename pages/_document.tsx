@@ -17,6 +17,8 @@ class MyDocument extends Document {
       <Html>
         <Head>
           <base target="_blank" />
+          <title> X-fest </title>
+          <link rel="shortcut icon" href="/static/favicon.ico" />
         </Head>
         <body>
           <Main />
