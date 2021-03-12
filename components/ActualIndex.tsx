@@ -6,6 +6,7 @@ import MessageList from "./MessageList";
 import styles from "./ActualIndex.module.css";
 import NavBarAndContent from "./NavbarAndContent";
 import Stream from "./Stream";
+import Image from "next/image";
 
 type imageProps = {
   url: string;
@@ -28,8 +29,8 @@ export type { prop };
 const ActualIndex = ({ data, socket }: prop) => {
   return (
     <div className={styles.actualIndex}>
-      <div>
-        <img className={styles.title} src="/x-fest_logo.png" alt="X-fest" height={110} />
+      <div style={{height: "110px", position: "relative"}}>
+        <Image className={styles.title} src="/x-fest_logo.png" alt="X-fest" layout="fill" objectFit="contain" />
       </div>
       <div className={styles.streamAndChat}>
         <div className={styles.stream}>

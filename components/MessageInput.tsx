@@ -1,5 +1,6 @@
 import { SyntheticEvent, useEffect, useState } from "react";
 import styles from "./MessageInput.module.css";
+import Image from "next/image";
 
 const MessageInput = () => {
   const [inputText, setInputText] = useState("");
@@ -63,7 +64,7 @@ const MessageInput = () => {
           />
         </label>
         <button className={styles.submitInput} type="submit">
-          <img src="/send-button.png" height={25}/>
+          <Image src="/send-button.png" height={25} width={25}/>
         </button>
         {/* <input className={styles.submitInput} type="image" name="submit" src="/send-button.png" border="0"/> */}
       </form>
