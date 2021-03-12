@@ -28,17 +28,12 @@ const Game = ({ gameScore }: props) => {
     if (value > currentScore) {
       setScore(value);
     }
-    if((gameScore.length) > 9){
-      if (value > gameScore[9].highscore) {
-        sumbitHighscore(value);
-      }
+    if (
+      gameScore.length < 10 ||
+      value > gameScore[gameScore.length - 1].highscore
+    ) {
+      sumbitHighscore(value);
     }
-    else {
-      if (value > gameScore[gameScore.length - 1].highscore) {
-        sumbitHighscore(value);
-      }
-    }
-    
   };
 
   const sumbitHighscore = (newScore: number) => {

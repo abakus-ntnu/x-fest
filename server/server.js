@@ -21,6 +21,18 @@ const Image = mongoose.model(
   )
 );
 
+const GameScore = mongoose.model(
+  "GameScore",
+  new mongoose.Schema(
+    {
+      name: { type: String },
+      side: { type: String },
+      highscore: { type: Number },
+    },
+    { autoCreate: true }
+  )
+);
+
 // Express setup
 const express = require("express");
 const http = require("http");
@@ -83,6 +95,33 @@ app.post("/messages", async (req, res) => {
     return console.log("error", error);
   } finally {
     //console.log('Message Posted');
+  }
+});
+
+app.post("/score", async (req, res) => {
+  try {
+    //console.log(req);
+    if (
+      req.body.name &&
+      req.body.score &&
+      req.body.side &&
+      ["abakus", "online"].includes(req.body.side)
+    ) {
+      GameScore.create(
+        { name: req.body.name, highscore: req.body.score, side: req.body.side },
+        function (err, small) {
+          if (err) return handleError(err);
+          // saved!
+        }
+      );
+      return res.sendStatus(200);
+    }
+    return res.sendStatus(400);
+  } catch (error) {
+    res.sendStatus(500);
+    return console.log("error", error);
+  } finally {
+    console.log("HighScore Posted");
   }
 });
 
