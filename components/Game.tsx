@@ -64,11 +64,11 @@ const Game = ({ gameScore }: props) => {
     groundSpeed: 200,
   };
 
-  const handleKeyDown = (e: Event) => {
+  const handleKeyDown = (e: Event | undefined) => {
     e = e || window.event;
-    const charCode = e.keyCode || e.which;
+    const charCode = e!.keyCode || e!.which;
     if (charCode === 32) {
-      e.preventDefault();
+      e!.preventDefault();
     }
   };
 
