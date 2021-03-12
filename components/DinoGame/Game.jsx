@@ -129,7 +129,8 @@ export default class GameComponent extends React.Component {
     const { width, height } = this.canvas;
 
     ctx.clearRect(0, 0, width, height);
-
+    ctx.fillStyle = "white";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.save();
 
     // 云
