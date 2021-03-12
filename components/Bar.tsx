@@ -11,10 +11,10 @@ const Bar = ({ pointsToAbakus, pointsToOnline }: props) => {
       <div className={styles.leftText}>{pointsToAbakus} x</div>
       <div className={styles.rightText}>{pointsToOnline} x</div>
       <div
-        style={{ flex: pointsToAbakus, backgroundColor: "var(--abakus)" }}
+        style={{ flex: pointsToAbakus == 0 ? 1 : pointsToAbakus, backgroundColor: "var(--abakus)" }}
       ></div>
       <div
-        style={{ flex: pointsToOnline, backgroundColor: "var(--online)" }}
+        style={{ flex: pointsToOnline == 0 ? 1 : pointsToOnline, backgroundColor: "var(--online)" }}
       ></div>
       <div className={styles.centerLine} />
     </div>
