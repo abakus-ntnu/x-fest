@@ -5,6 +5,7 @@
 .title {
   display: block;
   margin: 0 auto;
+  max-width: 100%;
 }
 
 .stream {
@@ -21,4 +22,18 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+@media (max-width: 1100px) {
+  .chat {
+    width: 100%;
+  }
+
+  .actualIndex {
+    margin: 2px;
+  }
+
+  .stream {
+    margin: 0;
+  }
 }
