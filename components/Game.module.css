@@ -25,3 +25,10 @@
   height: 200px;
   border: 1px solid black;
 }
+
+@media (max-width: 1100px) {
+  .canvasContainer {
+    width: 105%;
+    margin-bottom: 1rem;
+  }
+}
