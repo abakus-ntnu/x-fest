@@ -14,7 +14,8 @@ const socket: SocketIOClient.Socket = socketIOClient(
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 const Index = () => {
-  const { data, error } = useSWR("/api/state", fetcher, {
+  const [imageCount, setImageCount] = useState<number>(30);
+  const { data, error } = useSWR(["/api/state/" + imageCount], fetcher, {
     refreshInterval: 5000,
   });
   const [backgroundImage, setBackgroundImage] = useState("");
@@ -35,6 +36,8 @@ const Index = () => {
   if (error) return <StateSWR error={true} />;
   if (!data) return <StateSWR />;
 
+  console.log(imageCount);
+
   return (
     <div
       className={styles.container}
@@ -45,7 +48,11 @@ const Index = () => {
       }}
     >
       {backgroundImage ? (
-        <ActualIndex data={data} socket={socket} />
+        <ActualIndex
+          data={data}
+          socket={socket}
+          setImageCount={setImageCount}
+        />
       ) : (
         <WelcomeForm setBackgroundImage={setBackgroundImage} />
       )}

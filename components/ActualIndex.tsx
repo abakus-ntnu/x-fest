@@ -7,6 +7,7 @@ import styles from "./ActualIndex.module.css";
 import NavBarAndContent from "./NavbarAndContent";
 import Stream from "./Stream";
 import Image from "next/image";
+import { SetStateAction } from "react";
 
 type imageProps = {
   url: string;
@@ -23,14 +24,21 @@ type prop = {
     images: [imageProps];
   };
   socket: SocketIOClient.Socket;
+  setImageCount(value: SetStateAction<number>): void;
 };
 export type { prop };
 
-const ActualIndex = ({ data, socket }: prop) => {
+const ActualIndex = ({ data, socket, setImageCount }: prop) => {
   return (
     <div className={styles.actualIndex}>
-      <div style={{height: "110px", position: "relative"}}>
-        <Image className={styles.title} src="/x-fest_logo.png" alt="X-fest" layout="fill" objectFit="contain" />
+      <div style={{ height: "110px", position: "relative" }}>
+        <Image
+          className={styles.title}
+          src="/x-fest_logo.png"
+          alt="X-fest"
+          layout="fill"
+          objectFit="contain"
+        />
       </div>
       <div className={styles.streamAndChat}>
         <div className={styles.stream}>
@@ -48,7 +56,10 @@ const ActualIndex = ({ data, socket }: prop) => {
         ></Bar>
       </div>
       <div className={styles.navBarAndContent}>
-        <NavBarAndContent data={data}></NavBarAndContent>
+        <NavBarAndContent
+          data={data}
+          setImageCount={setImageCount}
+        ></NavBarAndContent>
       </div>
     </div>
   );

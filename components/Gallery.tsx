@@ -1,12 +1,13 @@
-import { FormEvent, useRef, useState } from "react";
+import { FormEvent, SetStateAction, useRef, useState } from "react";
 import { prop } from "./ActualIndex";
 import styles from "./Gallery.module.css";
 
 type ImageProps = {
   images: prop["data"]["images"];
+  setImageCount(value: SetStateAction<number>): void;
 };
 
-const Gallery = ({ images }: ImageProps) => {
+const Gallery = ({ images, setImageCount }: ImageProps) => {
   const photosInput = useRef<HTMLInputElement>(null);
   const [photoName, setPhotoName] = useState("");
 
@@ -62,6 +63,14 @@ const Gallery = ({ images }: ImageProps) => {
           images;
           return <img src={image.url} key={image.url} />;
         })}
+      </div>
+      <div
+        className={styles.addImageButton}
+        onClick={() => {
+          setImageCount((prevImageCount) => prevImageCount + 10);
+        }}
+      >
+        ▽
       </div>
     </div>
   );

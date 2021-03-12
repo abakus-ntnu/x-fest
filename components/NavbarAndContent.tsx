@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent, SetStateAction, useState } from "react";
 import Agenda from "./Agenda";
 import Infobox from "./Infobox";
 import Gallery from "./Gallery";
@@ -12,9 +12,10 @@ import { prop } from "./ActualIndex";
 
 type dataProps = {
   data: prop["data"];
+  setImageCount(value: SetStateAction<number>): void;
 };
 
-const NavBarAndContent = ({ data }: dataProps) => {
+const NavBarAndContent = ({ data, setImageCount }: dataProps) => {
   const [currentTab, setCurrentTab] = useState("info");
   const tabs = ["info", "gallery", "spill"];
 
@@ -77,7 +78,7 @@ const NavBarAndContent = ({ data }: dataProps) => {
       )}
       {currentTab === "gallery" && (
         <div>
-          <Gallery images={data.images} />
+          <Gallery images={data.images} setImageCount={setImageCount} />
         </div>
       )}
       {currentTab === "spill" && (
