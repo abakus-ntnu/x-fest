@@ -242,7 +242,7 @@ export default class GameComponent extends React.Component {
       let random = Math.floor(Math.random() * 100) % 60;
       random = ((Math.random() * 10) % 2 === 0 ? 1 : -1) * random;
       res.push({
-        distance: random + this.obstaclesBase * 200,
+        distance: random + this.obstaclesBase * 230,
       });
       ++this.obstaclesBase;
     }
@@ -325,7 +325,7 @@ export default class GameComponent extends React.Component {
         id="canvas"
         ref={(ref) => (this.canvas = ref)}
         height={"200"}
-        width={"800"}
+        width={"1000"}
       />
     );
   }
