@@ -14,7 +14,9 @@ const socket: SocketIOClient.Socket = socketIOClient(
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 const Index = () => {
-  const { data, error } = useSWR("/api/state", fetcher);
+  const { data, error } = useSWR("/api/state", fetcher, {
+    refreshInterval: 5000,
+  });
   const [backgroundImage, setBackgroundImage] = useState("");
 
   useEffect(() => {
