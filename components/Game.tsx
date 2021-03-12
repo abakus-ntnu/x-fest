@@ -64,7 +64,7 @@ const Game = ({ gameScore }: props) => {
     groundSpeed: 200,
   };
 
-  const handleKeyDown = (e: Event | undefined): void => {
+  const handleKeyDown = (e: KeyboardEvent | undefined): void => {
     const keyPressEvent = e || window.event;
     const charCode = e?.keyCode || e?.which;
     if (charCode === 32) {
