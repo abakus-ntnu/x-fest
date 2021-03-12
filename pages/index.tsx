@@ -5,6 +5,7 @@ import styles from "./index.module.css";
 import WelcomeForm from "../components/WelcomeForm";
 import { useEffect, useState } from "react";
 import ActualIndex from "../components/ActualIndex";
+import StateSWR from "../components/StateSWR";
 
 const socket: SocketIOClient.Socket = socketIOClient(
   process.env.NEXT_PUBLIC_SOCKET_URL!
@@ -29,8 +30,8 @@ const Index = () => {
     }
   }, []);
 
-  if (error) return <div>Failed to load</div>;
-  if (!data) return <div>Loading...</div>;
+  if (error) return <StateSWR error={true} />;
+  if (!data) return <StateSWR />;
 
   return (
     <div
