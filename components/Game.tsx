@@ -1,6 +1,6 @@
 import GameComponent from "./DinoGame/Game";
 import styles from "./Game.module.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import HighscoreComponent from "./HighscoreComponent";
 
 type gameScore = {
@@ -24,18 +24,6 @@ const Game = ({ gameScore }: props) => {
     />
   ));
 
-  const ParentFunction = (value: number) => {
-    if (value > currentScore) {
-      setScore(value);
-    }
-    if (
-      gameScore.length < 10 ||
-      value > gameScore[gameScore.length - 1].highscore
-    ) {
-      sumbitHighscore(value);
-    }
-  };
-
   const sumbitHighscore = (newScore: number) => {
     const name = sessionStorage.getItem("name");
     const side = sessionStorage.getItem("side");
@@ -58,20 +46,40 @@ const Game = ({ gameScore }: props) => {
       });
   };
 
+  const ParentFunction = (value: number) => {
+    if (value > currentScore) {
+      setScore(value);
+    }
+    if (
+      gameScore.length < 10 ||
+      value > gameScore[gameScore.length - 1].highscore
+    ) {
+      sumbitHighscore(value);
+    }
+  };
+
   const config = {
     fps: 60,
     skySpeed: 40,
     groundSpeed: 200,
   };
 
+  const handleKeyDown = (e: KeyboardEvent | undefined): void => {
+    const keyPressEvent = e || window.event;
+    const charCode = e?.keyCode || e?.which;
+    if (charCode === 32) {
+      e?.preventDefault();
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("keypress", handleKeyDown);
+  }, []);
+
   return (
     <div className={styles.gameContainer}>
       <div className={styles.canvasContainer}>
-        <GameComponent
-          className={styles.canvas}
-          options={config}
-          highScoreCallback={ParentFunction}
-        />
+        <GameComponent options={config} highScoreCallback={ParentFunction} />
       </div>
 
       <div className={styles.highScoreContainer}>
