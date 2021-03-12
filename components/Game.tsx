@@ -52,7 +52,7 @@ const Game = ({ gameScore }: props) => {
         score: newScore,
       }),
     })
-      .then((res) => console.log(res))
+      .then()
       .catch((error) => {
         console.error(error);
       });
