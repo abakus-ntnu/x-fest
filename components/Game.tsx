@@ -24,18 +24,6 @@ const Game = ({ gameScore }: props) => {
     />
   ));
 
-  const ParentFunction = (value: number) => {
-    if (value > currentScore) {
-      setScore(value);
-    }
-    if (
-      gameScore.length < 10 ||
-      value > gameScore[gameScore.length - 1].highscore
-    ) {
-      sumbitHighscore(value);
-    }
-  };
-
   const sumbitHighscore = (newScore: number) => {
     const name = sessionStorage.getItem("name");
     const side = sessionStorage.getItem("side");
@@ -58,6 +46,18 @@ const Game = ({ gameScore }: props) => {
       });
   };
 
+  const ParentFunction = (value: number) => {
+    if (value > currentScore) {
+      setScore(value);
+    }
+    if (
+      gameScore.length < 10 ||
+      value > gameScore[gameScore.length - 1].highscore
+    ) {
+      sumbitHighscore(value);
+    }
+  };
+
   const config = {
     fps: 60,
     skySpeed: 40,
@@ -65,7 +65,7 @@ const Game = ({ gameScore }: props) => {
   };
 
   const handleKeyDown = (e: Event | undefined): void => {
-    e = e || window.event;
+    const keyPressEvent = e || window.event;
     const charCode = e?.keyCode || e?.which;
     if (charCode === 32) {
       e?.preventDefault();
