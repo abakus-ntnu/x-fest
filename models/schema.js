@@ -43,8 +43,8 @@ const GameSchema = new mongoose.Schema(
   },
   { autoCreate: true }
 );
-
 export const GameScore = mongoose.model("GameScore", GameSchema);
+
 const StreamSchema = new mongoose.Schema(
   {
     streamId: { type: String },
@@ -58,6 +58,6 @@ const ImageSchema = new mongoose.Schema(
     url: { type: String },
     approved: { type: Boolean },
   },
-  { autoCreate: true }
+  { autoCreate: true, timestamps: true }
 );
 export const Image = mongoose.model("Image", ImageSchema);

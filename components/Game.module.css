@@ -1,8 +1,7 @@
 .gameContainer {
-  width: 100%;
-  height: 400px;
   display: flex;
   flex-direction: row;
+  justify-content: center;
   flex-wrap: wrap;
   margin-top: 5%;
 }
@@ -14,13 +13,16 @@
   margin-right: auto;
   padding-right: 30px;
   background-color: white;
-  width: 30%;
   font-size: 1.5vw;
+  width: 0 auto;
+  overflow-x: hidden;
 }
 
 .canvasContainer {
   margin-left: auto;
   margin-right: auto;
+  width: 800px;
+  height: 200px;
 }
 
 .canvas {

@@ -33,7 +33,9 @@ export default async function handler(
   const score = await Score.findOne().sort({ date: -1 }).limit(1);
   const gameScore = await GameScore.find({}).sort({ highscore: -1 }).limit(10);
   const stream = await Stream.findOne().sort({ date: -1 }).limit(1);
-  const images = await Image.find({ approved: true });
+  const images = await Image.find({ approved: true })
+    .sort({ date: -1 })
+    .limit(30);
 
   res.statusCode = 200;
   res.setHeader("Content-Type", "application/json");

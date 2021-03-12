@@ -7,14 +7,13 @@ type HighscoreProps = {
 };
 
 const HighscoreComponent = ({ name, side, highscore }: HighscoreProps) => {
-  
   return (
     <li className={Styles.elementStyle}>
       <img
         className={Styles.iconImage}
         src={side + ".png"}
         alt="linjeforeningsikon"
-      />{" "}
+      />
       <b>{name}</b>
       <div>Highscore: {highscore}</div>
     </li>
