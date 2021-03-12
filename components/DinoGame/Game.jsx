@@ -182,7 +182,7 @@ export default class GameComponent extends React.Component {
     ctx.font = "Bold 18px Arial";
     ctx.textAlign = "right";
     ctx.fillStyle = "#595959";
-    ctx.fillText(scoreText, width - 30, 23);
+    ctx.fillText(scoreText, 300, 23);
     if (this.status === STATUS.START) {
       this.score += 0.5;
       if (this.score > this.highScore) {

@@ -1,4 +1,4 @@
-import { ChangeEvent, SetStateAction, SyntheticEvent, useState } from "react";
+import { ChangeEvent, SetStateAction, SyntheticEvent, useState, useRef } from "react";
 import styles from "./WelcomeForm.module.css";
 
 type props = {
@@ -8,6 +8,7 @@ type props = {
 const WelcomeForm = ({ setBackgroundImage }: props) => {
   const [username, setUsername] = useState("");
   const [side, setSide] = useState("");
+  const inputRef = useRef<HTMLInputElement>(null)
 
   const maxUsernameLength = 20;
 
@@ -18,6 +19,12 @@ const WelcomeForm = ({ setBackgroundImage }: props) => {
   const handleSideChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSide(event.target.value);
   };
+
+  const handleImageClick = () => {
+      if (inputRef && inputRef.current) {
+        inputRef.current.focus()
+    }
+  }
 
   const handleUserSubmit = (event: SyntheticEvent) => {
     event.preventDefault();
@@ -41,6 +48,7 @@ const WelcomeForm = ({ setBackgroundImage }: props) => {
             type="radio"
             name="side"
             value="abakus"
+            onInput={handleImageClick}
             onChange={handleSideChange}
             className={styles.radio}
           />
@@ -53,6 +61,7 @@ const WelcomeForm = ({ setBackgroundImage }: props) => {
             name="side"
             type="radio"
             value="online"
+            onInput={handleImageClick}
             onChange={handleSideChange}
             className={styles.radio}
           />
@@ -61,22 +70,22 @@ const WelcomeForm = ({ setBackgroundImage }: props) => {
           </div>
         </label>
       </div>
-      {side && (
         <>
           <label className={styles.nameInput}>
             <input
+              ref={inputRef} 
               type="text"
               name="name"
               maxLength={maxUsernameLength}
               onChange={handleUsernameChange}
               placeholder="Skriv inn navn ..."
+              style={side ? {} : {display: "none"}}
             />
           </label>
           <div className={styles.submitButtonDiv}>
-            <input type="submit" value="JOIN" className={styles.submitButton} />
+            <input type="submit" value="JOIN" className={styles.submitButton} style={side ? {} : {display: "none"}} />
           </div>
         </>
-      )}
     </form>
   );
 };
