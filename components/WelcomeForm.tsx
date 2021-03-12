@@ -34,9 +34,7 @@ const WelcomeForm = ({ setBackgroundImage }: props) => {
   // Adding image radiobuttons: https://stackoverflow.com/questions/17541614/use-images-instead-of-radio-buttons/17541916
   return (
     <form onSubmit={handleUserSubmit} className={styles.container}>
-      <div className={styles.text}>
-        VELG DIN SIDE:
-      </div>
+      <div className={styles.text}>VELG DIN SIDE:</div>
       <div className={styles.sideButtons}>
         <label className={styles.abakusButton}>
           <input
@@ -63,22 +61,22 @@ const WelcomeForm = ({ setBackgroundImage }: props) => {
           </div>
         </label>
       </div>
-      <label className={styles.nameInput}>
-        <input
-          type="text"
-          name="name"
-          maxLength={maxUsernameLength}
-          onChange={handleUsernameChange}
-          placeholder="Skriv inn navn ..."
-        />
-      </label>
-      <div className={styles.submitButtonDiv}>
-        <input
-          type="submit"
-          value="JOIN"
-          className={styles.submitButton}
-        />
-      </div>
+      {side && (
+        <>
+          <label className={styles.nameInput}>
+            <input
+              type="text"
+              name="name"
+              maxLength={maxUsernameLength}
+              onChange={handleUsernameChange}
+              placeholder="Skriv inn navn ..."
+            />
+          </label>
+          <div className={styles.submitButtonDiv}>
+            <input type="submit" value="JOIN" className={styles.submitButton} />
+          </div>
+        </>
+      )}
     </form>
   );
 };
