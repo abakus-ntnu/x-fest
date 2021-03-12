@@ -52,7 +52,7 @@ const MessageInput = () => {
   return (
     <div className={styles.container}>
       <form className={styles.form} onSubmit={handleMessageSubmit}>
-        <label>
+        <label className={styles.inputLabel}>
           <input
             type="text"
             placeholder="Skriv en melding ..."

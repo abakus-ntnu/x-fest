@@ -30,10 +30,11 @@
   }
 
   .actualIndex {
-    margin: 2px;
+    margin: 2px 0;
   }
 
   .stream {
-    margin: 0;
+    max-width: 100%;
+    margin: 0 5px;
   }
 }

@@ -13,14 +13,12 @@ const Stream = ( {streamId} : prop ) => {
     },
   };
   return (
-    <div className={styles.youtubeWrapper}>
       <YouTube
         containerClassName={styles.youtube}
         videoId={streamId}
         opts={videoOpts}
         className={styles.youtubeActual}
       />
-    </div>
   );
 };
 export default Stream;
