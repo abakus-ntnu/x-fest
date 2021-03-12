@@ -5,7 +5,7 @@ import HighscoreComponent from "./HighscoreComponent";
 
 type gameScore = {
   name: string;
-  union: string;
+  side: string;
   highscore: number;
 };
 
