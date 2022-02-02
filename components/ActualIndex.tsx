@@ -34,7 +34,7 @@ const ActualIndex = ({ data, socket }: prop) => {
       </div>
       <div className={styles.streamAndChat}>
         <div className={styles.stream}>
-          <Stream streamId={data.stream.streamId} />
+          <Stream streamId={data?.stream?.streamId} />
         </div>
         <div className={styles.chat}>
           <MessageList socket={socket} />
@@ -43,8 +43,8 @@ const ActualIndex = ({ data, socket }: prop) => {
       </div>
       <div className={styles.bar}>
         <Bar
-          pointsToAbakus={data.score.abakus}
-          pointsToOnline={data.score.online}
+          pointsToAbakus={data?.score?.abakus}
+          pointsToOnline={data?.score?.online}
         ></Bar>
       </div>
       <div className={styles.navBarAndContent}>

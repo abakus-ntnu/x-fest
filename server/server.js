@@ -3,12 +3,12 @@ const env = require("./env");
 
 const mongoose = require("mongoose");
 
+const username = process.env.DATABASE_USER;
+const password = process.env.DATABASE_PASSWORD;
 const dbname = "x-fest";
+const url = `mongodb+srv://${username}:${password}@cluster.xaaub.mongodb.net/${dbname}?retryWrites=true&w=majority`;
 
-mongoose.connect(
-  `mongodb+srv://${env.DATABASE_USER}:${env.DATABASE_PASSWORD}@cluster0.sdzbx.mongodb.net/${dbname}?retryWrites=true&w=majority`,
-  { useNewUrlParser: true }
-);
+mongoose.connect(url);
 
 const Image = mongoose.model(
   "Image",
@@ -78,7 +78,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.post("/messages", async (req, res) => {
   try {
-    //console.log(req);
     if (
       req.body.name &&
       req.body.name.length <= 20 &&
@@ -100,7 +99,6 @@ app.post("/messages", async (req, res) => {
 
 app.post("/score", async (req, res) => {
   try {
-    //console.log(req);
     if (
       req.body.name &&
       req.body.score &&

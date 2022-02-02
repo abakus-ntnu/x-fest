@@ -21,6 +21,7 @@ class MyDocument extends Document {
           <link rel="shortcut icon" href="/static/favicon.ico" />
         </Head>
         <body>
+          <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
           <Main />
           <NextScript />
         </body>

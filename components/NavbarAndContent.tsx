@@ -71,18 +71,18 @@ const NavBarAndContent = ({ data }: dataProps) => {
 
       {currentTab === "info" && (
         <div className={styles.infoContent}>
-          <Infobox md={data.info.text} />
-          <Agenda agenda={data.agenda} />
+          <Infobox md={data?.info?.text} />
+          <Agenda agenda={data?.agenda} />
         </div>
       )}
       {currentTab === "gallery" && (
         <div>
-          <Gallery images={data.images} />
+          <Gallery images={data?.images} />
         </div>
       )}
       {currentTab === "spill" && (
         <div>
-          <Game gameScore={data.gameScore} />
+          <Game gameScore={data?.gameScore} />
         </div>
       )}
     </div>
