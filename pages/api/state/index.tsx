@@ -13,7 +13,7 @@ const username = process.env.DATABASE_USER;
 const password = process.env.DATABASE_PASSWORD;
 const dbname = "x-fest";
 
-export const url = `mongodb+srv://${username}:${password}@cluster0.sdzbx.mongodb.net/${dbname}?retryWrites=true&w=majority`;
+export const url = `mongodb+srv://${username}:${password}@cluster.xaaub.mongodb.net/${dbname}?retryWrites=true&w=majority`;
 
 export default async function handler(
   req: NextApiRequest,
