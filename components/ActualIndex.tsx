@@ -43,8 +43,8 @@ const ActualIndex = ({ data, socket }: prop) => {
       </div>
       <div className={styles.bar}>
         <Bar
-          pointsToAbakus={data?.score?.abakus}
-          pointsToOnline={data?.score?.online}
+          pointsToAbakus={data?.score?.pointsToAbakus}
+          pointsToOnline={data?.score?.pointsToOnline}
         ></Bar>
       </div>
       <div className={styles.navBarAndContent}>
