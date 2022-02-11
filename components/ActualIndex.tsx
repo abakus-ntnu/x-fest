@@ -15,7 +15,7 @@ type imageProps = {
 
 type prop = {
   data: {
-    score: { abakus: number; online: number };
+    score: { pointsToAbakus: number; pointsToOnline: number };
     info: { text: string };
     agenda: [];
     gameScore: [];
