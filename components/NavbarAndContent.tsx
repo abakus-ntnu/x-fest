@@ -55,6 +55,7 @@ const NavBarAndContent = ({ data }: dataProps) => {
           </div>
         </label>
 
+    {/*
         <label className={styles.navbarButton}>
           <input
             type="radio"
@@ -67,6 +68,8 @@ const NavBarAndContent = ({ data }: dataProps) => {
             SPILL
           </div>
         </label>
+
+    */}
       </form>
 
       {currentTab === "info" && (
